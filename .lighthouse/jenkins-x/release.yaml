@@ -13,23 +13,22 @@ spec:
         stepTemplate:
           image: uses:jenkins-x/jx3-pipeline-catalog/tasks/environment/release.yaml@versionStream
           name: ""
-          resources:
-            # override limits for all containers here
-            limits:
-              cpu: 400m
-              memory: 256Mi
+          resources: {}
           workingDir: /workspace/source
         steps:
         - image: uses:jenkins-x/jx3-pipeline-catalog/tasks/git-clone/git-clone.yaml@versionStream
           name: ""
           resources: {}
         - name: admin-log
-          resources:
-            # override requests for the pod here
-            requests:
-              cpu: 0.1
-              memory: 128Mi
-  podTemplate: {}
+          resources: {}
+  podTemplate:
+    dnsPolicy: "None"
+    dnsConfig:
+      nameservers:
+        - 8.8.8.8
+      options:
+        - name: ndots
+          value: "1"
   serviceAccountName: tekton-bot
   timeout: 12h0m0s
 status: {}
