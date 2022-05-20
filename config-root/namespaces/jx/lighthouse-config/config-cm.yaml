@@ -7,6 +7,7 @@ data:
       LinkURL: null
     in_repo_config:
       enabled:
+        bachu-org/demo-node-http: true
         bachu-org/jx3-minikube: true
     plank: {}
     pod_namespace: jx
@@ -19,6 +20,7 @@ data:
         required-if-present-contexts: null
         skip-unknown-contexts: false
       merge_method:
+        bachu-org/demo-node-http: merge
         bachu-org/jx3-minikube: merge
       queries:
       - labels:
@@ -31,6 +33,7 @@ data:
         - needs-rebase
         repos:
         - bachu-org/jx3-minikube
+        - bachu-org/demo-node-http
       - labels:
         - updatebot
         missingLabels:
@@ -41,6 +44,7 @@ data:
         - needs-rebase
         repos:
         - bachu-org/jx3-minikube
+        - bachu-org/demo-node-http
       target_url: http://lighthouse-jx.192.168.59.129.nip.io/merge/status
 kind: ConfigMap
 metadata:
