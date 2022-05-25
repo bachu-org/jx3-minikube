@@ -22,13 +22,10 @@ spec:
         - name: admin-log
           resources: {}
   podTemplate:
-    dnsPolicy: "None"
+    dnsPolicy: ClusterFirst
     dnsConfig:
       nameservers:
         - 8.8.8.8
-      options:
-        - name: ndots
-          value: "1"
   serviceAccountName: tekton-bot
   timeout: 12h0m0s
 status: {}
